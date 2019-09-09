@@ -1,0 +1,8 @@
+ws4py
+pyyaml
+cherrypy==17.4.2
+colorlog
+enum
+schedule
+pyserial
+pyinstaller

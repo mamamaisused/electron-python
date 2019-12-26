@@ -13,9 +13,11 @@
 /dist
 /pydist
 /py/env/
+/py/*.pyc
 /files
 /.vscode
 /.log
+*.log
 
 # misc
 .DS_Store

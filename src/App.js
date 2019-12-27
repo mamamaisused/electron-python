@@ -48,7 +48,7 @@ class ButtonSize extends React.Component {
     opCode: "test",
     data: {
       param: 0,
-      description: ""
+      brief: ""
     }
   };
 
@@ -93,7 +93,7 @@ class ButtonSize extends React.Component {
   rqstOpenCom = (name) => {
     this.comMessage.opCode = "open_com";
     this.comMessage.data.param = name;
-    this.comMessage.data.description = "open serial port";
+    this.comMessage.data.brief = "open serial port";
   }
 
   render() {
@@ -112,7 +112,7 @@ class ButtonSize extends React.Component {
       fontWeight: 'bold'
     }
 
-    let ws = new WebSocket("ws://127.0.0.1:19002/ws");
+    let ws = new WebSocket("ws://192.168.1.23:19002/ws");
 
     let rqstPython = () => {
       if (ws.readyState === WebSocket.OPEN)
@@ -130,7 +130,7 @@ class ButtonSize extends React.Component {
         this.setState(
           {
             progress: message_json.data.param,
-            info: message_json.data.description
+            info: message_json.data.brief
           }
         )
       }
@@ -144,7 +144,7 @@ class ButtonSize extends React.Component {
         }
         this.setState(
           {
-            info: message_json.data.description,
+            info: message_json.data.brief,
             comList: com_name_list
           }        
         )
@@ -156,7 +156,7 @@ class ButtonSize extends React.Component {
         {
           message.success('get device id success',2)
           this.setState(
-            {idGet:message_json.data.description}
+            {idGet:message_json.data.brief}
           )
         }
         else if(message_json.data.param == ComReplyParam.GETFAIL)
